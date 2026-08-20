@@ -1,18 +1,25 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import {
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-} from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import { usePathname } from "next/navigation";
+import Image from "next/image";
+import { useState } from "react";
+
+import Link from "next/link";
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
 export default function Dropdown() {
+  const pathname = usePathname();
   return (
     <Menu as="div" className="relative inline-block text-left ">
-      <MenuButton className="inline-flex items-center gap-2 bg-primary border-none px-5 py-2 text-sm font-medium">
+      <MenuButton
+        className={`inline-flex items-center gap-2 bg-primary border-none px-5 py-2 text-sm
+         max-sm:text-base font-medium
+         hover:text-[#32B866] transition-colors ${
+              pathname === "/service/rehabilitation-services"
+                ? "text-[#32B866]"
+                : " text-gray-700 hover:text-[#32B866]"}`} 
+      >
         Services
         <ChevronDownIcon className="h-5 w-5" />
       </MenuButton>
@@ -30,9 +37,7 @@ export default function Dropdown() {
               <Link
                 href="/services/rehabilitation-services"
                 className={`block px-4 py-2 text-sm ${
-                  focus
-                    ? 'bg-primary text-[#1eb560]'
-                    : 'text-gray-700'
+                  focus ? "bg-primary text-[#1eb560]" : "text-gray-700"
                 }`}
               >
                 Rehabilitation Services
@@ -45,9 +50,7 @@ export default function Dropdown() {
               <Link
                 href="/services/counselling-services"
                 className={`block px-4 py-2 text-sm ${
-                  focus
-                    ? 'bg-primary text-[#1eb560]'
-                    : 'text-gray-700'
+                  focus ? "bg-primary text-[#1eb560]" : "text-gray-700"
                 }`}
               >
                 Counselling Services
@@ -60,9 +63,7 @@ export default function Dropdown() {
               <Link
                 href="/services/research-and-publication"
                 className={`block px-4 py-2 text-sm ${
-                  focus
-                    ? 'bg-primary text-[#1eb560]'
-                    : 'text-gray-700'
+                  focus ? "bg-primary text-[#1eb560]" : "text-gray-700"
                 }`}
               >
                 Research & Publication
@@ -75,9 +76,7 @@ export default function Dropdown() {
               <Link
                 href="/services/internship-and-training"
                 className={`block px-4 py-2 text-sm ${
-                  focus
-                    ? 'bg-primary text-[#1eb560]'
-                    : 'text-gray-700'
+                  focus ? "bg-primary text-[#1eb560]" : "text-gray-700"
                 }`}
               >
                 Internship & Training

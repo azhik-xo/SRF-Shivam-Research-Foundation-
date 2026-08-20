@@ -1,6 +1,6 @@
 import Image from "next/image";
+import { Poppins } from "next/font/google";
 
-import { Playfair_Display, Poppins } from "next/font/google";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -8,31 +8,38 @@ const poppins = Poppins({
 
 export default function VisionMission() {
   return (
-    <section className="bg-white py-20 px-3  border-2 border-amber-500">
-      <div className="max-w-7xl mx-auto flex flex-col gap-24">
+    <section className="bg-white py-16 md:py-20 px-4 md:px-8">
+      <div className="max-w-7xl mx-auto flex flex-col gap-20 md:gap-32">
+        
         {/* --- Our Vision Section --- */}
-        <div className="flex flex-col md:flex-row items-center gap-30 border-2 border-amber-500">
+        {/* Changed to lg:flex-row to prevent crowding on smaller tablets */}
+        <div className="w-full flex flex-col lg:flex-row items-center gap-10 lg:gap-50 ">
           {/* Image */}
-          <Image
-            src="/images/home/vission.png" // Replace with your actual image path
-            alt="Therapist and patient during a consultation"
-            width={400}
-            height={450}
-            className="w-100 h-112.5 rounded-3xl border-2 border-amber-500"
-          />
+          <div className="w-full max-w-100 shrink-0">
+            <Image
+              src="/images/home/vission.png" // Replace with your actual image path
+              alt="Therapist and patient during a consultation"
+              width={400}
+              height={450}
+              className="w-full h-auto object-cover rounded-3xl border-2"
+            />
+          </div>
 
           {/* Content */}
-          <div className="w-full h-fit flex flex-col gap-6 border-2 border-amber-500 ">
-            <h2 className={`text-5xl  font-normal text-[#185e49] ${poppins.className}`}>
+          <div className="w-fit flex flex-col gap-4 md:gap-6 ">
+            <h2
+              className={`text-4xl md:text-5xl font-normal text-[#185e49] ${poppins.className}`}
+            >
               Our Vision
             </h2>
-            <p className="text-base font-semibold text-black">
+            {/* Replaced invalid w-2xl with max-w-2xl */}
+            <p className="w-full max-w-2xl text-base md:text-lg font-semibold text-black text-justify">
               To create a mentally healthy, resilient, and inclusive society
               where every individual has access to quality mental health care,
               psychosocial support, and opportunities to achieve their fullest
               potential.
             </p>
-            <ul className="flex flex-col gap-4 text-[#8a8a8a] text-sm md:text-base leading-relaxed font-extralight">
+            <ul className="flex flex-col gap-3 md:gap-4 text-[#8a8a8a] text-sm md:text-base leading-relaxed font-extralight">
               <li className="flex gap-3">
                 <span className="text-[#8a8a8a] mt-1">•</span>
                 <p>
@@ -73,25 +80,32 @@ export default function VisionMission() {
         </div>
 
         {/* --- Our Mission Section --- */}
-        <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16 lg:gap-24">
+        <div className="flex flex-col lg:flex-row-reverse items-center gap-10 lg:gap-16">
           {/* Image */}
-          <div className="w-full md:w-1/2 flex justify-center">
-            <div className="relative w-full aspect-4/5 max-w-md overflow-hidden rounded-3xl">
-              <Image
-                src="/images/home/mission.png" // Replace with your actual image path
-                alt="Two people holding hands in support"
-                fill
-                className="object-cover"
-              />
-            </div>
+          <div className="w-full max-w-100 shrink-0">
+            <Image
+              src="/images/home/mission.png" // Replace with your actual image path
+              alt="Therapist and patient during a consultation"
+              width={400}
+              height={450}
+              className="w-full h-auto object-cover rounded-3xl border-2"
+            />
           </div>
 
           {/* Content */}
-          <div className="w-full md:w-1/2">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#185e49] mb-8">
+          <div className="w-full flex flex-col gap-4 md:gap-6">
+            <h2
+              className={`text-4xl md:text-5xl font-normal text-[#185e49] ${poppins.className}`}
+            >
               Our Mission
             </h2>
-            <ul className="flex flex-col gap-4 text-[#8a8a8a] text-sm md:text-base leading-relaxed font-light">
+            <p className="w-full max-w-2xl text-base md:text-lg font-semibold text-black text-justify">
+              To improve mental health and quality of life through integrated
+              clinical services, research, education, advocacy, and community
+              engagement while empowering individuals, families, and communities
+              with evidence-based psychosocial interventions.
+            </p>
+            <ul className="flex flex-col gap-3 md:gap-4 text-[#8a8a8a] text-sm md:text-base leading-relaxed font-extralight">
               <li className="flex gap-3">
                 <span className="text-[#8a8a8a] mt-1">•</span>
                 <p>
@@ -130,6 +144,7 @@ export default function VisionMission() {
             </ul>
           </div>
         </div>
+        
       </div>
     </section>
   );

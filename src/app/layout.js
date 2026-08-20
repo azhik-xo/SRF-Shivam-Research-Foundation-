@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -16,7 +17,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${poppins.className}`}>
-      <body>{children}</body>
+      <body>
+      <SmoothScroll>
+      {children}
+      </SmoothScroll>
+      </body>
     </html>
   );
 }
