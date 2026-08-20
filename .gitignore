@@ -42,3 +42,7 @@ next-env.d.ts
 
 # claude code
 .claude/
+
+
+# test folder
+.test
