@@ -53,17 +53,26 @@ export default function Footer() {
       {/* Bottom Section - Dark Green Background */}
       <div className="bg-[#114532] px-6 py-8">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-[#1d6b4f] pt-6">
-          {/* Copyright */}
-          <p className="text-gray-200 text-sm mb-4 md:mb-0">
-            © 2026 . All rights reserved.
-          </p>
+          {/* Copyright & Admin Link */}
+          <div className="flex items-center gap-4 mb-4 md:mb-0">
+            <p className="text-gray-200 text-sm">
+              © 2026 Sivam Research Foundation. All rights reserved.
+            </p>
+            <span className="text-gray-500">•</span>
+            <Link
+              href="/admin"
+              className="text-gray-400 hover:text-white text-xs transition-colors"
+            >
+              Admin Portal
+            </Link>
+          </div>
 
           {/* Email */}
           <a
-            href="mailto:example@gmail.com"
+            href="mailto:sivamresearchfoundation@gmail.com"
             className="text-gray-200 text-sm hover:text-white transition-colors duration-300"
           >
-            example@gmail.com
+            sivamresearchfoundation@gmail.com
           </a>
         </div>
       </div>
