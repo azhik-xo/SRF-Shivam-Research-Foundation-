@@ -234,7 +234,7 @@ export default function GalleryFormModal({ isOpen, onClose, onSuccess, editItem 
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="e.g. Annual Community Health Workshop"
-              className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0F6E57] focus:border-transparent text-sm transition-all"
+              className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0F6E57] focus:border-transparent text-sm text-gray-500 transition-all"
               required
             />
           </div>

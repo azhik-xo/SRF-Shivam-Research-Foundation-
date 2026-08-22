@@ -91,7 +91,7 @@ export default function GalleryManager({ user, onLogout }) {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50/50">
+    <div className="min-h-screen bg-gray-50">
       {/* Toast Notification */}
       {toast && (
         <div
@@ -211,7 +211,7 @@ export default function GalleryManager({ user, onLogout }) {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search images by title..."
-              className="w-full pl-9 pr-4 py-2 rounded-xl bg-gray-50 border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#0F6E57] focus:bg-white transition-all"
+              className="w-full pl-9 pr-4 py-2 rounded-xl text-gray-400 bg-gray-50 border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#0F6E57] focus:bg-white transition-all"
             />
             <svg
               className="w-4 h-4 text-gray-400 absolute left-3 top-3"

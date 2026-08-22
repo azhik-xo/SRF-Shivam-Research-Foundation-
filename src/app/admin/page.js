@@ -84,8 +84,8 @@ export default function AdminPage() {
 
   // Unauthenticated: Render Admin Login Form
   return (
-    <div className="min-h-screen bg-linear-to-br from-emerald-50 via-gray-50 to-teal-50/40 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md px-4">
+    <div className="min-h-screen bg-linear-to-br from-emerald-50 via-gray-50 to-emerald-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-md px-4 ">
         {/* Brand Header */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2 mb-4 group">
