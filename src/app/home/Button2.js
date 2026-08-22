@@ -1,23 +1,15 @@
-import Image from "next/image";
 import Link from "next/link";
+import { SparklesIcon } from "@heroicons/react/24/outline";
 
-const Button2 = () => {
+const Button2 = ({ text = "Explore Our Services", href = "/services" }) => {
   return (
     <Link
-      href=""
-      className="inline-flex items-center justify-center gap-3 border-2 border-white text-white font-medium px-6 
-      py-3 max-sm:px-6 max-sm:py-3 rounded-full text-sm max-sm:text-sm"
+      href={href}
+      className="inline-flex items-center justify-center gap-2.5 border-2 border-white/80 hover:border-white bg-white/10 hover:bg-white/20 text-white font-semibold px-7 py-3.5 rounded-full text-sm backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
     >
-      <Image
-        src="/images/icons/playvid.png"
-        alt="arrow icon"
-        width={20}
-        height={20}
-        className="w-5 h-5 max-sm:w-5 max-sm:h-5"
-      />
-      <span>Watch How It Works</span>
+      <SparklesIcon className="w-4 h-4 stroke-[2]" />
+      <span>{text}</span>
     </Link>
-    
   );
 };
 

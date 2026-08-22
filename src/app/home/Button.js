@@ -1,23 +1,15 @@
-import Image from "next/image";
 import Link from "next/link";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
-const Button = () => {
+const Button = ({ text = "Book Free Consultation", href = "/contact" }) => {
   return (
     <Link
-      href=""
-      className="inline-flex items-center justify-center gap-3 bg-[#15bf5f] text-black font-medium px-6 
-      py-3 max-sm:px-6 max-sm:py-3 rounded-full text-sm max-sm:text-sm"
+      href={href}
+      className="inline-flex items-center justify-center gap-2.5 bg-[#15bf5f] hover:bg-[#12a953] text-gray-950 font-semibold px-7 py-3.5 rounded-full text-sm shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
     >
-      <span>Book Free Consultation</span>
-      <Image
-        src="/images/icons/arrow.png"
-        alt="arrow icon"
-        width={20}
-        height={20}
-        className="w-4 h-3 max-sm:w-4 max-sm:h-3"
-      />
+      <span>{text}</span>
+      <ArrowRightIcon className="w-4 h-4 stroke-[2.5]" />
     </Link>
-    
   );
 };
 
