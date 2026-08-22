@@ -267,3 +267,132 @@ export async function deleteGalleryItem(id) {
     return { success: false, message: error.message || "Failed to delete image" };
   }
 }
+
+/**
+ * Fetch all professionals / doctors.
+ */
+export async function fetchProfessionals() {
+  const baseUrl = getApiBaseUrl();
+  try {
+    const res = await fetchWithTimeout(
+      `${baseUrl}/api/professionals/get.php`,
+      {
+        method: "GET",
+        cache: "no-store",
+      },
+      5000
+    );
+
+    if (!res.ok) {
+      return { success: false, message: `Server returned ${res.status}`, data: [] };
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.warn("Fetch professionals failed:", error.message);
+    return {
+      success: false,
+      message: error.message || "Backend server not responding.",
+      data: [],
+    };
+  }
+}
+
+/**
+ * Fetch a single professional by ID.
+ */
+export async function fetchProfessionalItem(id) {
+  const baseUrl = getApiBaseUrl();
+  try {
+    const res = await fetchWithTimeout(
+      `${baseUrl}/api/professionals/show.php?id=${encodeURIComponent(id)}`,
+      {
+        method: "GET",
+        cache: "no-store",
+      },
+      5000
+    );
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Fetch professional item failed:", error);
+    return { success: false, message: error.message };
+  }
+}
+
+/**
+ * Create a new professional (FormData containing `name`, `specialty`, and `image`).
+ */
+export async function createProfessional(formData) {
+  const baseUrl = getApiBaseUrl();
+  try {
+    const res = await fetchWithTimeout(
+      `${baseUrl}/api/professionals/create.php`,
+      {
+        method: "POST",
+        credentials: "include",
+        body: formData,
+      },
+      25000 // 25s for Cloudinary upload
+    );
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Create professional failed:", error);
+    return { success: false, message: error.message || "Failed to add professional" };
+  }
+}
+
+/**
+ * Update an existing professional (FormData containing `id`, `name`, `specialty`, and optional `image`).
+ */
+export async function updateProfessional(formData) {
+  const baseUrl = getApiBaseUrl();
+  try {
+    const res = await fetchWithTimeout(
+      `${baseUrl}/api/professionals/update.php`,
+      {
+        method: "POST",
+        credentials: "include",
+        body: formData,
+      },
+      25000
+    );
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Update professional failed:", error);
+    return { success: false, message: error.message || "Failed to update professional" };
+  }
+}
+
+/**
+ * Delete a professional by ID.
+ */
+export async function deleteProfessional(id) {
+  const baseUrl = getApiBaseUrl();
+  try {
+    const formData = new FormData();
+    formData.append("id", id);
+
+    const res = await fetchWithTimeout(
+      `${baseUrl}/api/professionals/delete.php`,
+      {
+        method: "POST",
+        credentials: "include",
+        body: formData,
+      },
+      10000
+    );
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Delete professional failed:", error);
+    return { success: false, message: error.message || "Failed to delete professional" };
+  }
+}
